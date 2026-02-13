@@ -6,17 +6,15 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        /* Primary: EB Garamond | Secondary: Roboto */
+        /* EB Garamond for the letter and banner | Roboto for UI */
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&display=swap');
 
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
-        /* Utility Bar - Roboto Font per instructions */
+        /* Utility Bar - Roboto Font */
         .utility-bar { background: #011F5B; color: white; padding: 12px 50px; display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto', sans-serif; }
         .logo-group { display: flex; align-items: center; }
-        .penn-shield { height: 48px; margin-right: 15px; }
-        .penn-text { font-size: 1.5rem; font-weight: 700; line-height: 1; letter-spacing: -0.5px; }
-        .penn-text span { display: block; font-size: 0.85rem; font-weight: 400; letter-spacing: 0.5px; }
+        .penn-shield { height: 50px; } /* Official Logo is wide, height adjusted to scale */
         
         .user-nav { text-align: right; }
         .user-name { font-weight: 700; font-size: 1rem; color: #ffffff; }
@@ -25,8 +23,8 @@
         .container { max-width: 900px; margin: 40px auto; padding: 0 40px; }
         .date { font-family: 'EB Garamond', serif; font-weight: 800; color: #011F5B; font-size: 1.4rem; margin-bottom: 25px; }
 
-        /* Accurate Blue Box Header */
-        .banner { background-color: #011F5B; height: 230px; display: flex; position: relative; color: white; overflow: hidden; border-radius: 3px; }
+        /* Blue Box Header - Increased height for "Small Caps" text */
+        .banner { background-color: #011F5B; height: 240px; display: flex; position: relative; color: white; overflow: hidden; border-radius: 3px; }
         
         .stripes {
             width: 260px;
@@ -47,34 +45,32 @@
             margin-bottom: -10px; text-transform: uppercase; letter-spacing: 1px;
         }
 
-        /* Tightened PENN spacing per request */
-        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.2rem; font-weight: 900; margin: 0; letter-spacing: -4px; display: flex; align-items: center; }
-        .penn-30 span.year { letter-spacing: 6px; margin-left: 10px; }
-        .divider { color: #cc0000; margin: 0 10px; font-weight: normal; letter-spacing: normal; }
+        /* Adjusted PENN spacing: tight but distinct */
+        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.2rem; font-weight: 900; margin: 0; letter-spacing: 2px; display: flex; align-items: center; }
+        .divider { color: #cc0000; margin: 0 12px; font-weight: normal; }
+        .year { letter-spacing: 8px; margin-left: 10px; }
 
-        .univ-name { 
-            font-family: 'EB Garamond', serif; 
-            font-size: 1.9rem; font-style: italic; letter-spacing: 2px;
-            text-transform: uppercase; margin-top: -10px; opacity: 0.95;
-        }
+        /* University of Pennsylvania Styling */
+        .univ-name { font-family: 'EB Garamond', serif; font-size: 1.8rem; margin-top: -5px; letter-spacing: 1px; }
+        .univ-caps { font-variant: small-caps; text-transform: uppercase; font-weight: 400; }
+        .univ-of { font-style: italic; font-size: 1.6rem; text-transform: lowercase; margin: 0 5px; }
 
-        /* Darker Blue #011F5B for Greeting/Body headers */
-        .letter-text { margin-top: 45px; font-family: 'EB Garamond', serif; font-size: 1.3rem; line-height: 1.6; color: #333; }
-        .greeting { color: #011F5B; font-weight: 700; font-size: 1.4rem; margin-bottom: 20px; display: block; }
-        .letter-text p { margin-bottom: 20px; }
+        /* Letter Body - #011F5B Dark Blue Name */
+        .letter-text { margin-top: 45px; font-family: 'EB Garamond', serif; font-size: 1.3rem; line-height: 1.65; color: #333; }
+        .greeting { color: #011F5B; font-weight: 700; font-size: 1.45rem; margin-bottom: 20px; display: block; }
+        .letter-text p { margin-bottom: 22px; }
 
         .signature { margin-top: 40px; }
         .sig-img { font-family: 'Brush Script MT', cursive; font-size: 3.2rem; color: #000; margin: 5px 0; }
-        .sig-name { font-family: 'Roboto', sans-serif; font-weight: 700; margin: 0; font-size: 1rem; color: #011F5B; }
-        .sig-title { font-family: 'Roboto', sans-serif; margin: 0; font-size: 0.85rem; color: #666; }
+        .sig-name { font-family: 'Roboto', sans-serif; font-weight: 700; margin: 0; font-size: 1.05rem; color: #011F5B; }
+        .sig-title { font-family: 'Roboto', sans-serif; margin: 0; font-size: 0.9rem; color: #666; }
     </style>
 </head>
 <body>
 
 <div class="utility-bar">
     <div class="logo-group">
-        <img src="https://branding.web-resources.upenn.edu/sites/default/files/styles/card_2x/public/2022-04/Penn-Shield-RGB.png" class="penn-shield" alt="Penn Shield">
-        <div class="penn-text">Penn<span>Admissions</span></div>
+        <img src="https://admissions.upenn.edu/sites/default/files/logo-penn-admissions.png" class="penn-shield" alt="Penn Admissions">
     </div>
     <div class="user-nav">
         <span class="user-name">Aizan Gul</span>
@@ -90,7 +86,11 @@
         <div class="header-main">
             <div class="congrats">Congrats and Welcome!</div>
             <h1 class="penn-30">PENN<span class="divider">|</span><span class="year">30</span></h1>
-            <div class="univ-name">University <i>of</i> Pennsylvania</div>
+            <div class="univ-name">
+                <span class="univ-caps">University</span>
+                <span class="univ-of">of</span>
+                <span class="univ-caps">Pennsylvania</span>
+            </div>
         </div>
     </div>
 
@@ -99,7 +99,7 @@
 
         <p>Congratulations! You are invited to join the Class of 2030 at the University of Pennsylvania for study in the <strong>Wharton School</strong>.</p>
 
-        <p>It is time to celebrate! Extending this invitation to you means many things. It means high fiving with the Quaker mascot and throwing toast onto Franklin Field. It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea. It means there are people here—who you haven't even met yet—who are waiting to cheer you on, lift you up, and help you grow.</p>
+        <p>It is time to celebrate! Extending this invitation to you means many things. It means high fiving with the Quaker mascot and throwing toast onto Franklin Field. It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea.</p>
 
         <p>Benjamin Franklin, our founder, was a creator. He envisioned a school that would provide an inclusive and comprehensive education to prepare its students to use their knowledge to benefit the world. Upon that revolutionary promise, he founded the University of Pennsylvania as the first university in this country.</p>
 
