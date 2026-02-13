@@ -6,7 +6,7 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&family=Permanent+Marker&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&family=Permanent+Marker&family=Crimson+Pro:ital,wght@1,200..900&display=swap');
 
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
@@ -22,14 +22,13 @@
         /* Banner Box */
         .banner { background-color: #011F5B; height: 235px; display: flex; position: relative; color: white; overflow: hidden; border-radius: 2px; }
         
-        /* THE THREE LINES: Fixed lengths and spacing to match image_e78a3f.png */
+        /* THE THREE LINES */
         .lines-container {
             position: absolute;
             left: 0;
             top: 0;
             width: 280px;
             height: 100%;
-            /* Using a linear gradient to create three distinct bars with hard stops */
             background: linear-gradient(135deg, 
                 #d92b2d 0%, #d92b2d 12%, 
                 transparent 12%, transparent 20%, 
@@ -41,7 +40,6 @@
             z-index: 1;
         }
 
-        /* Shifted content block to match horizontal spacing of image_e78a3f.png */
         .header-main { 
             flex: 1; 
             display: flex; 
@@ -59,24 +57,28 @@
             margin-bottom: -10px; text-transform: uppercase;
         }
 
-        /* PENN | 30 - Matches image_e78a3f.png proportions */
+        /* PENN | 30 - Thinned and balanced */
         .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.8rem; font-weight: 900; margin: 0; display: flex; align-items: center; }
-        .penn-text { letter-spacing: 2px; margin-right: 25px; } 
-        .divider { color: #d92b2d; font-weight: normal; transform: scaleY(1.1); }
-        .year-text { letter-spacing: 6px; margin-left: 35px; } 
+        .penn-text { letter-spacing: 2px; margin-right: 30px; } 
+        .divider { color: #d92b2d; font-weight: 100; font-size: 4.5rem; opacity: 0.8; margin: 0; transform: scaleY(1.2); }
+        .year-text { letter-spacing: 6px; margin-left: 30px; } 
 
-        /* UNIVERSITY OF PENNSYLVANIA with ITC Style "of" */
-        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.1rem; margin-top: -15px; letter-spacing: 1px; }
+        /* UNIVERSITY OF PENNSYLVANIA - Lowered and Font Fixed */
+        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.1rem; margin-top: 2px; letter-spacing: 1px; }
         .univ-caps { font-variant: small-caps; text-transform: uppercase; font-weight: 400; }
+        
+        /* ITC STONE SERIF ITALIC REPLICATION */
         .univ-of { 
-            font-family: 'Georgia', serif; 
+            font-family: 'Crimson Pro', serif; 
             font-style: italic; 
-            font-size: 2rem; 
+            font-weight: 500;
+            font-size: 2.2rem; 
             text-transform: lowercase; 
-            margin: 0 14px; 
+            margin: 0 12px; 
             display: inline-block;
-            transform: skewX(-12deg); 
+            transform: skewX(-5deg); /* Sharpening the italic angle */
             color: #ffffff;
+            vertical-align: baseline;
         }
 
         .letter-text { margin-top: 45px; font-family: 'EB Garamond', serif; font-size: 1.35rem; line-height: 1.6; color: #333; }
@@ -124,7 +126,6 @@
         <span class="greeting">Dear Aizan,</span>
         <p>Congratulations! You are invited to join the Class of 2030 at the University of Pennsylvania for study in the <strong>Wharton School</strong>.</p>
         <p>It is time to celebrate! Extending this invitation to you means many things. It means high fiving with the Quaker mascot and throwing toast onto Franklin Field. It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea.</p>
-        <p>Congratulations again!</p>
         <div class="signature">
             <p style="margin-bottom:0;">Sincerely,</p>
             <div class="sig-font">E. Whitney Soule</div>
