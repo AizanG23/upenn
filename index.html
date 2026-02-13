@@ -6,8 +6,7 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        /* Added Caveat for that marker/handwritten look */
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&display=swap');
 
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
@@ -41,17 +40,18 @@
             text-align: center; z-index: 2; padding-left: 140px; 
         }
         
-        /* Caveat Marker Font Implementation */
+        /* scaled down the congrats text */
         .congrats-banner { 
             font-family: 'Caveat', cursive; 
             color: #32a1db; 
-            font-size: 2.2rem; /* Larger because script fonts are thinner */
-            font-weight: 600;
-            letter-spacing: 1px; 
-            margin-bottom: -10px; 
+            font-size: 1.4rem; /* Much smaller size */
+            font-weight: 500;
+            letter-spacing: 0.5px; 
+            margin-bottom: -15px; 
             text-transform: uppercase;
-            transform: scaleY(1.15); /* Slight vertical stretch */
+            transform: scaleY(1.1); /* Subtle vertical stretch */
             display: inline-block;
+            opacity: 0.95;
         }
 
         .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.8rem; font-weight: 900; margin: 0; display: flex; align-items: center; }
@@ -119,7 +119,7 @@
 
         <p>Benjamin Franklin, our founder, was a <em>creator</em>. His relentless curiosity and his willingness to persist through setbacks fueled his creation of many inventions that still exist in our 21st century lives--including the lightning rod, bifocals, and odometers (I bet <em>that's</em> a word you never thought you'd see in a college acceptance letter!). He also envisioned a school that would provide an inclusive and comprehensive education to prepare its students to use their knowledge to benefit the world. Upon the revolutionary promise, he founded the University of Pennsylvania as the first university in this country.</p>
 
-        <p>We are grateful that you have given us the opportunity to imagine the University of Pennsylvania with you as part of our community. We can see you here, on Locust Walk, catching up with friends, heading to class, rehearsal, or study group. We can picture you falling in love with Philadelphia and feeling like you've found your next home. We can't wait to welcome you to campus.</p>
+        <p>We are grateful that you have given us the opportunity to imagine the University of Pennsylvania with you as part of our community. We can see you here, on Locust Walk, catching up with friends, heading to class, rehearsal, or study group. We can picture you here falling in love with Philadelphia and feeling like you've found your next home. We can't wait to welcome you to campus.</p>
 
         <p>Congratulations again!</p>
 
