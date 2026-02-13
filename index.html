@@ -8,8 +8,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&family=Permanent+Marker&display=swap');
 
-        /* Perpetua is usually a local system font or requires a specific webfont. 
-           Adding 'Times New Roman' as a fallback as it shares the high-contrast serif look. */
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
         .utility-bar { background: #011F5B; color: white; padding: 12px 50px; display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto', sans-serif; }
@@ -24,24 +22,26 @@
         /* Banner Box */
         .banner { background-color: #011F5B; height: 235px; display: flex; position: relative; color: white; overflow: hidden; border-radius: 2px; }
         
-        /* THE THREE LINES: Lowered, shorter, angled slightly toward text */
+        /* THE THREE LINES: Fixed lengths and spacing to match image_e78a3f.png */
         .lines-container {
             position: absolute;
-            left: -10px;
-            bottom: -30px; /* Lowered them */
-            width: 320px;
-            height: 180px; /* Controlled length */
-            background: repeating-linear-gradient(
-                125deg, /* Slight angle toward lettering */
-                #d92b2d,
-                #d92b2d 35px,
-                transparent 35px,
-                transparent 70px
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100%;
+            /* Using a linear gradient to create three distinct bars with hard stops */
+            background: linear-gradient(135deg, 
+                #d92b2d 0%, #d92b2d 12%, 
+                transparent 12%, transparent 20%, 
+                #d92b2d 20%, #d92b2d 32%, 
+                transparent 32%, transparent 40%, 
+                #d92b2d 40%, #d92b2d 52%, 
+                transparent 52%
             );
             z-index: 1;
         }
 
-        /* Shifted content block right to match image_e78a3f.png */
+        /* Shifted content block to match horizontal spacing of image_e78a3f.png */
         .header-main { 
             flex: 1; 
             display: flex; 
@@ -50,39 +50,30 @@
             align-items: center; 
             text-align: center; 
             z-index: 2;
-            padding-left: 150px; 
+            padding-left: 140px; 
         }
         
         .congrats { 
             font-family: 'Permanent Marker', cursive; 
-            color: #4da6ff; font-size: 1.1rem; letter-spacing: 0.5px; 
-            margin-bottom: -5px; text-transform: uppercase;
+            color: #4da6ff; font-size: 1.05rem; letter-spacing: 0.5px; 
+            margin-bottom: -10px; text-transform: uppercase;
         }
 
-        /* PENN | 30 - Now using Perpetua style with character separation */
-        .penn-30 { 
-            font-family: 'Perpetua', 'Times New Roman', serif; 
-            font-size: 6.5rem; 
-            font-weight: bold; 
-            margin: 0; 
-            display: flex; 
-            align-items: center; 
-            letter-spacing: 8px; /* Separating letters of PENN and 30 */
-        }
-        
-        .penn-text { margin-right: 15px; } 
-        .divider { color: #d92b2d; font-weight: normal; margin: 0 10px; }
-        .year-text { margin-left: 20px; } 
+        /* PENN | 30 - Matches image_e78a3f.png proportions */
+        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.8rem; font-weight: 900; margin: 0; display: flex; align-items: center; }
+        .penn-text { letter-spacing: 2px; margin-right: 25px; } 
+        .divider { color: #d92b2d; font-weight: normal; transform: scaleY(1.1); }
+        .year-text { letter-spacing: 6px; margin-left: 35px; } 
 
         /* UNIVERSITY OF PENNSYLVANIA with ITC Style "of" */
-        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.2rem; margin-top: -15px; letter-spacing: 1.5px; }
+        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.1rem; margin-top: -15px; letter-spacing: 1px; }
         .univ-caps { font-variant: small-caps; text-transform: uppercase; font-weight: 400; }
         .univ-of { 
             font-family: 'Georgia', serif; 
             font-style: italic; 
             font-size: 2rem; 
             text-transform: lowercase; 
-            margin: 0 12px; 
+            margin: 0 14px; 
             display: inline-block;
             transform: skewX(-12deg); 
             color: #ffffff;
