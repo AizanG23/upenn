@@ -6,15 +6,16 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        /* Primary: EB Garamond | Secondary: Roboto | Accent: Permanent Marker */
+        /* Loading EB Garamond, Roboto, and Permanent Marker. 
+           Note: Stone Serif is a premium font; using a high-quality Serif italic fallback 
+           with specific CSS transforms to mimic the 'pointy' look. */
         @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&family=Permanent+Marker&display=swap');
 
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
-        /* Utility Bar - Dark Blue #011F5B */
+        /* Utility Bar - #011F5B */
         .utility-bar { background: #011F5B; color: white; padding: 12px 50px; display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto', sans-serif; }
         .penn-logo-link { height: 48px; display: block; }
-        
         .user-nav { text-align: right; }
         .user-name { font-weight: 700; font-size: 1rem; color: #ffffff; }
         .logout { color: #ffffff; text-decoration: none; font-size: 0.75rem; display: block; margin-top: 2px; opacity: 0.8; }
@@ -25,45 +26,57 @@
         /* Banner Box */
         .banner { background-color: #011F5B; height: 235px; display: flex; position: relative; color: white; overflow: hidden; border-radius: 2px; }
         
-        /* THREE STRIPES: Lowered, sharper, and sized exactly per reference */
-        .stripes-container {
+        /* THE LINES: Fixed to match image_e791c2.png exactly */
+        .lines-container {
             position: absolute;
-            bottom: -5px; 
-            left: 0;
-            width: 280px;
-            height: 180px;
+            left: -20px;
+            bottom: -30px;
+            width: 320px;
+            height: 250px;
             background: repeating-linear-gradient(
                 135deg,
                 #cc0000,
-                #cc0000 25px, /* Width of the red line */
-                transparent 25px,
-                transparent 50px /* Gap between lines */
+                #cc0000 28px,
+                transparent 28px,
+                transparent 56px
             );
-            mask-image: linear-gradient(to top right, black 40%, transparent 80%);
-            -webkit-mask-image: linear-gradient(to top right, black 40%, transparent 80%);
+            /* Masking to create the cut-off effect seen in real images */
+            -webkit-mask-image: linear-gradient(to top right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+            mask-image: linear-gradient(to top right, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 80%);
+            opacity: 0.95;
         }
 
-        .header-main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 1; }
+        .header-main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2; }
         
         .congrats { 
             font-family: 'Permanent Marker', cursive; 
-            color: #4da6ff; font-size: 1.05rem; letter-spacing: -0.5px; 
+            color: #4da6ff; font-size: 1.1rem; letter-spacing: -0.5px; 
             margin-bottom: -15px; text-transform: uppercase;
         }
 
-        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.5rem; font-weight: 900; margin: 0; letter-spacing: 1px; display: flex; align-items: center; }
+        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.6rem; font-weight: 900; margin: 0; letter-spacing: 2px; display: flex; align-items: center; }
         .divider { color: #cc0000; margin: 0 15px; font-weight: normal; }
         .year { letter-spacing: 6px; margin-left: 12px; }
 
-        /* REFINED UNIVERSITY NAME: Pointy 'f' and sharp serif styling */
-        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.1rem; margin-top: -10px; letter-spacing: 1px; }
+        /* UNIVERSITY OF PENNSYLVANIA - Fixed "OF" */
+        .univ-name { font-family: 'EB Garamond', serif; font-size: 2rem; margin-top: -10px; letter-spacing: 1.5px; }
         .univ-caps { font-variant: small-caps; text-transform: uppercase; font-weight: 400; }
-        .univ-of { font-style: italic; font-family: 'Georgia', serif; font-size: 1.8rem; text-transform: lowercase; margin: 0 8px; vertical-align: middle; }
+        
+        /* ITC Stone Serif Style for "of" */
+        .univ-of { 
+            font-family: 'Georgia', serif; 
+            font-style: italic; 
+            font-size: 1.9rem; 
+            text-transform: lowercase; 
+            margin: 0 10px; 
+            display: inline-block;
+            transform: skewX(-5deg); /* Making the 'f' more pointy/slanted */
+            color: #ffffff;
+        }
 
-        /* Letter Body - #011F5B Dark Blue Name */
-        .letter-text { margin-top: 45px; font-family: 'EB Garamond', serif; font-size: 1.3rem; line-height: 1.65; color: #333; }
-        .greeting { color: #011F5B; font-weight: 700; font-size: 1.45rem; margin-bottom: 20px; display: block; }
-        .letter-text p { margin-bottom: 22px; }
+        /* Body Greeting - #011F5B */
+        .letter-text { margin-top: 45px; font-family: 'EB Garamond', serif; font-size: 1.35rem; line-height: 1.6; color: #333; }
+        .greeting { color: #011F5B; font-weight: 700; font-size: 1.5rem; margin-bottom: 20px; display: block; }
 
         .signature { margin-top: 40px; }
         .sig-font { font-family: 'EB Garamond', serif; font-style: italic; font-size: 2.8rem; color: #000; margin: 5px 0; }
@@ -87,7 +100,7 @@
     <div class="date">December 18, 2025</div>
 
     <div class="banner">
-        <div class="stripes-container"></div>
+        <div class="lines-container"></div>
         <div class="header-main">
             <div class="congrats">Congrats and Welcome!</div>
             <h1 class="penn-30">PENN<span class="divider">|</span><span class="year">30</span></h1>
@@ -103,7 +116,6 @@
         <span class="greeting">Dear Aizan,</span>
         <p>Congratulations! You are invited to join the Class of 2030 at the University of Pennsylvania for study in the <strong>Wharton School</strong>.</p>
         <p>It is time to celebrate! Extending this invitation to you means many things. It means high fiving with the Quaker mascot and throwing toast onto Franklin Field. It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea.</p>
-        <p>Benjamin Franklin, our founder, was a creator. He envisioned a school that would provide an inclusive and comprehensive education to prepare its students to use their knowledge to benefit the world. Upon that revolutionary promise, he founded the University of Pennsylvania as the first university in this country.</p>
         <p>Congratulations again!</p>
         <div class="signature">
             <p style="margin-bottom:0;">Sincerely,</p>
@@ -117,9 +129,9 @@
 <script>
     window.onload = function() {
         confetti({
-            particleCount: 180,
-            spread: 80,
-            origin: { y: 0.65 },
+            particleCount: 200,
+            spread: 90,
+            origin: { y: 0.6 },
             colors: ['#011F5B', '#cc0000', '#ffffff']
         });
     };
