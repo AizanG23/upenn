@@ -6,7 +6,7 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&family=Permanent+Marker&display=swap');
 
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
@@ -23,7 +23,10 @@
         
         .lines-container {
             position: absolute;
-            left: 0; top: 0; width: 280px; height: 100%;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100%;
             background: linear-gradient(135deg, 
                 #d92b2d 0%, #d92b2d 12%, 
                 transparent 12%, transparent 20%, 
@@ -36,22 +39,20 @@
         }
 
         .header-main { 
-            flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; 
-            text-align: center; z-index: 2; padding-left: 140px; 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            z-index: 2;
+            padding-left: 140px; 
         }
         
-        /* Permanent Marker - Styled to be thin and stretched */
         .congrats-banner { 
             font-family: 'Permanent Marker', cursive; 
-            color: #32a1db; 
-            font-size: 1.15rem; /* Small and clean */
-            font-weight: 400;
-            letter-spacing: 2px; 
-            margin-bottom: -8px; 
-            text-transform: uppercase;
-            transform: scaleY(1.3); /* Vertical stretch for that marker look */
-            display: inline-block;
-            filter: brightness(1.1);
+            color: #4da6ff; font-size: 1.05rem; letter-spacing: 0.5px; 
+            margin-bottom: -10px; text-transform: uppercase;
         }
 
         .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.8rem; font-weight: 900; margin: 0; display: flex; align-items: center; }
@@ -69,10 +70,18 @@
 
         .signature { margin-top: 20px; } 
         .sig-handwritten-img { 
-            display: block; width: 240px; height: auto; margin: 5px 0; mix-blend-mode: multiply; 
+            display: block; 
+            width: 240px; 
+            height: auto; 
+            margin: 5px 0; 
+            mix-blend-mode: multiply; 
         }
         .sig-info { 
-            font-family: 'EB Garamond', serif; font-size: 1.35rem; color: #011F5B; margin: 0; line-height: 1.2;
+            font-family: 'EB Garamond', serif; 
+            font-size: 1.35rem; 
+            color: #011F5B; 
+            margin: 0;
+            line-height: 1.2;
         }
     </style>
 </head>
@@ -119,7 +128,7 @@
 
         <p>Benjamin Franklin, our founder, was a <em>creator</em>. His relentless curiosity and his willingness to persist through setbacks fueled his creation of many inventions that still exist in our 21st century lives--including the lightning rod, bifocals, and odometers (I bet <em>that's</em> a word you never thought you'd see in a college acceptance letter!). He also envisioned a school that would provide an inclusive and comprehensive education to prepare its students to use their knowledge to benefit the world. Upon the revolutionary promise, he founded the University of Pennsylvania as the first university in this country.</p>
 
-        <p>We are grateful that you have given us the opportunity to imagine the University of Pennsylvania with you as part of our community. We can see you here, on Locust Walk, catching up with friends, heading to class, rehearsal, or study group. We can picture you here falling in love with Philadelphia and feeling like you've found your next home. We can't wait to welcome you to campus.</p>
+        <p>We are grateful that you have given us the opportunity to imagine the University of Pennsylvania with you as part of our community. We can see you here, on Locust Walk, catching up with friends, heading to class, rehearsal, or study group. We can picture you falling in love with Philadelphia and feeling like you've found your next home. We can't wait to welcome you to campus.</p>
 
         <p>Congratulations again!</p>
 
