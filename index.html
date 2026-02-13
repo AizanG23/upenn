@@ -55,35 +55,33 @@
             margin-bottom: -10px; text-transform: uppercase;
         }
 
-        /* PENN | 30 - Red line made longer and centered */
+        /* PENN | 30 - Shortened the red divider height */
         .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.8rem; font-weight: 900; margin: 0; display: flex; align-items: center; }
         .penn-text { letter-spacing: 2px; margin-right: 30px; } 
         .divider { 
             background-color: #d92b2d; 
-            width: 6px; 
-            height: 105px; /* Increased length as requested */
+            width: 5px; 
+            height: 85px; /* Shortened slightly more to match "PENN" height better */
             display: inline-block;
             margin: 0;
         }
         .year-text { letter-spacing: 6px; margin-left: 30px; } 
 
-        /* UNIVERSITY OF PENNSYLVANIA - Lowered with custom "of" */
-        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.1rem; margin-top: 10px; letter-spacing: 1px; }
+        /* UNIVERSITY OF PENNSYLVANIA - Standard spacing */
+        .univ-name { font-family: 'EB Garamond', serif; font-size: 2.1rem; margin-top: 5px; letter-spacing: 1px; }
         .univ-caps { font-variant: small-caps; text-transform: uppercase; font-weight: 400; }
         
-        /* The "Secret" Perpetua-style "of" */
+        /* Reverted and thinned "of" */
         .univ-of { 
-            font-family: 'EB Garamond', serif; /* Base for high-quality serif */
+            font-family: 'EB Garamond', serif; 
             font-style: italic; 
-            font-weight: 600;
-            font-size: 2.3rem; 
+            font-weight: 400; /* Thinned weight */
+            font-size: 2.1rem; 
             text-transform: lowercase; 
-            margin: 0 10px; 
+            margin: 0 12px; 
             display: inline-block;
-            /* Manual Sharpening: 110% height, 90% width, skewed for aggressive angle */
-            transform: scale(0.9, 1.1) skewX(-8deg); 
             color: #ffffff;
-            vertical-align: middle;
+            vertical-align: baseline;
         }
 
         .letter-text { margin-top: 45px; font-family: 'EB Garamond', serif; font-size: 1.35rem; line-height: 1.6; color: #333; }
