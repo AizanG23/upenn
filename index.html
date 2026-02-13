@@ -63,7 +63,7 @@
             margin-bottom: 25px;
         }
 
-        /* Banner Box */
+        /* Banner */
         .banner {
             background-color: #011F5B;
             height: 235px;
@@ -74,7 +74,7 @@
             border-radius: 2px;
         }
 
-        /* === THREE DIAGONAL RED LINES – Option 1 === */
+        /* FIXED THREE DIAGONAL RED LINES */
         .lines-container {
             position: absolute;
             inset: 0;
@@ -89,26 +89,25 @@
             content: '';
             position: absolute;
             background: #d92b2d;
-            width: 380px;           /* long enough to cross the whole banner */
-            height: 38px;           /* thickness – try 36–42px to match */
-            left: -100px;           /* start off-screen left */
-            top: 50%;
+            width: 460px;           /* long enough to cross fully */
+            height: 36px;           /* bar thickness – adjust 34–40px if needed */
+            left: -160px;           /* start farther left to enter properly */
             transform: translateY(-50%) rotate(135deg);
         }
 
         .lines-container::before {
-            top: 36%;               /* top bar position */
+            top: 25%;               /* top stripe – moved higher */
         }
 
         .lines-container::after {
-            top: 64%;               /* bottom bar position */
+            top: 75%;               /* bottom stripe – moved lower */
         }
 
         .lines-container .bar {
-            top: 50%;               /* middle bar */
+            top: 50%;               /* middle stripe */
         }
 
-        /* Shifted content block */
+        /* Main content – pushed right to avoid overlap */
         .header-main {
             flex: 1;
             display: flex;
@@ -117,7 +116,7 @@
             align-items: center;
             text-align: center;
             z-index: 2;
-            padding-left: 140px;    /* keeps text away from the lines */
+            padding-left: 160px;    /* increased to give more space from lines */
         }
 
         .congrats {
@@ -223,6 +222,7 @@
     </style>
 </head>
 <body>
+
 <div class="utility-bar">
     <div class="logo-group">
         <img src="https://admissions.upenn.edu/sites/default/files/logo-penn-admissions.png" class="penn-logo-link" alt="Penn Admissions">
@@ -238,7 +238,7 @@
 
     <div class="banner">
         <div class="lines-container">
-            <div class="bar"></div> <!-- middle bar -->
+            <div class="bar"></div> <!-- middle -->
         </div>
         <div class="header-main">
             <div class="congrats">Congrats and Welcome!</div>
@@ -279,5 +279,6 @@
         });
     };
 </script>
+
 </body>
 </html>
