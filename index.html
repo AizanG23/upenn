@@ -74,7 +74,7 @@
             border-radius: 2px;
         }
 
-        /* FIXED THREE DIAGONAL RED LINES */
+        /* FIXED: Three crisp diagonal red stripes with flat ends */
         .lines-container {
             position: absolute;
             inset: 0;
@@ -83,31 +83,22 @@
             overflow: hidden;
         }
 
-        .lines-container::before,
-        .lines-container::after,
-        .lines-container .bar {
-            content: '';
+        .stripe {
             position: absolute;
             background: #d92b2d;
-            width: 460px;           /* long enough to cross fully */
-            height: 36px;           /* bar thickness – adjust 34–40px if needed */
-            left: -160px;           /* start farther left to enter properly */
-            transform: translateY(-50%) rotate(135deg);
+            width: 520px;                /* extra long to avoid side clipping */
+            height: 38px;                /* thickness – adjust 36–42px */
+            left: -180px;
+            top: 50%;
+            transform: translateY(-50%) rotate(128deg);  /* steeper angle, more "right-leaning" */
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* ensures flat rectangular ends */
         }
 
-        .lines-container::before {
-            top: 25%;               /* top stripe – moved higher */
-        }
+        .stripe.top    { top: 26%; }
+        .stripe.middle { top: 50%; }
+        .stripe.bottom { top: 74%; }
 
-        .lines-container::after {
-            top: 75%;               /* bottom stripe – moved lower */
-        }
-
-        .lines-container .bar {
-            top: 50%;               /* middle stripe */
-        }
-
-        /* Main content – pushed right to avoid overlap */
+        /* Main content – more space from lines */
         .header-main {
             flex: 1;
             display: flex;
@@ -116,7 +107,7 @@
             align-items: center;
             text-align: center;
             z-index: 2;
-            padding-left: 160px;    /* increased to give more space from lines */
+            padding-left: 180px;     /* increased to match steeper angle */
         }
 
         .congrats {
@@ -238,7 +229,9 @@
 
     <div class="banner">
         <div class="lines-container">
-            <div class="bar"></div> <!-- middle -->
+            <div class="stripe top"></div>
+            <div class="stripe middle"></div>
+            <div class="stripe bottom"></div>
         </div>
         <div class="header-main">
             <div class="congrats">Congrats and Welcome!</div>
