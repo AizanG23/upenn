@@ -6,131 +6,151 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        body { background-color: #f4f4f4; font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 0; }
+        /* Importing a serif font that closely mimics the official University of Pennsylvania style */
+        @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,600;1,400&display=swap');
         
-        /* Top Navigation Bar */
-        .top-nav { background: #003366; color: white; padding: 12px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .penn-logo { font-weight: bold; font-size: 1.2rem; }
-        .user-section { text-align: right; font-size: 0.85rem; }
-        .logout { color: #8eb3d9; text-decoration: none; display: block; font-size: 0.75rem; }
+        body { background-color: #ffffff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; padding: 0; }
+        
+        /* Utility Top Bar matching Image 2 */
+        .utility-bar { background: #003366; color: white; padding: 12px 50px; display: flex; justify-content: space-between; align-items: center; }
+        .penn-logo-top { display: flex; align-items: center; font-weight: bold; font-size: 1.2rem; }
+        .penn-shield { height: 38px; margin-right: 12px; }
+        .user-info { text-align: right; font-size: 0.85rem; line-height: 1.3; }
+        .logout { color: #ffffff; text-decoration: none; font-weight: bold; display: block; font-size: 0.75rem; }
 
-        .container { max-width: 850px; margin: 30px auto; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 4px; overflow: hidden; }
+        .main-container { max-width: 900px; margin: 40px auto; padding: 0 40px; }
 
-        /* Accurate Banner from Image 1 */
-        .banner { 
+        /* The Date requested by the user */
+        .date-line { font-weight: bold; color: #003366; font-size: 1.15rem; margin-bottom: 30px; font-family: sans-serif; }
+
+        /* Accurate Blue Box Header matching Reference Images */
+        .blue-box { 
             background-color: #003366; 
-            height: 220px; 
+            height: 200px; 
             display: flex; 
-            align-items: center; 
-            position: relative;
-            color: white;
+            position: relative; 
+            color: white; 
+            overflow: hidden;
+            border-radius: 2px;
         }
 
-        /* The Red Stripes with Distressed Look */
-        .stripes-container {
-            width: 250px;
+        /* 3 THICK STRIPES: Angled 135 degrees (down and to the left) as seen in reference */
+        .stripes-pattern {
+            width: 240px;
             height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                #cc0000 0px,
-                #cc0000 25px,
-                #003366 25px,
-                #003366 50px
+            background: linear-gradient(
+                135deg, 
+                #003366 12%, 
+                #cc0000 12%, #cc0000 26%, 
+                #003366 26%, #003366 38%, 
+                #cc0000 38%, #cc0000 52%, 
+                #003366 52%, #003366 64%, 
+                #cc0000 64%, #cc0000 78%, 
+                #003366 78%
             );
-            mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
-            -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 70%, rgba(0,0,0,0));
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        .banner-text {
+        .header-content {
             flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding-right: 40px;
+            padding-right: 20px;
         }
 
-        .congrats-script {
-            font-family: 'Brush Script MT', cursive;
-            color: #4da6ff; /* Light blue from image */
-            font-size: 1.8rem;
-            margin-bottom: -15px;
+        /* Font fix for Congrats line: Light blue, stylized caps */
+        .congrats-text {
+            font-family: 'Comic Sans MS', 'Marker Felt', cursive; 
+            color: #4da6ff;
+            font-size: 1.35rem;
+            margin-bottom: 2px;
             letter-spacing: 1px;
+            text-transform: uppercase;
+            font-style: italic;
         }
 
-        .penn-30 {
+        .penn-30-title {
+            font-family: 'Arial Black', sans-serif;
             font-size: 5rem;
             font-weight: 900;
-            letter-spacing: 10px;
             margin: 0;
+            letter-spacing: 10px;
             display: flex;
-            justify-content: center;
             align-items: center;
         }
 
-        .pipe { color: #cc0000; margin: 0 20px; font-weight: 300; }
+        /* Red vertical pipe divider */
+        .red-pipe { color: #cc0000; margin: 0 18px; font-weight: normal; }
 
-        .univ-name {
-            font-family: 'Times New Roman', serif;
+        /* University Name Font: Crimson Pro Serif */
+        .univ-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.7rem;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            font-size: 1.4rem;
-            margin-top: -10px;
+            margin-top: -5px;
         }
 
-        /* Letter Content */
-        .letter { padding: 50px 70px; line-height: 1.6; color: #333; font-family: 'Georgia', serif; font-size: 1.05rem; }
-        .date { margin-bottom: 30px; font-family: sans-serif; font-weight: bold; color: #003366; }
-        
-        .signature-area { margin-top: 40px; }
-        .sig-file { width: 180px; filter: grayscale(1) contrast(1.2); margin-bottom: 5px; }
-        .sig-name { font-weight: bold; margin: 0; font-family: sans-serif; }
-        .sig-title { margin: 0; font-size: 0.9rem; color: #666; font-family: sans-serif; }
-
-        @media (max-width: 600px) {
-            .stripes-container { display: none; }
-            .banner-text { padding: 0; }
-            .penn-30 { font-size: 3rem; letter-spacing: 5px; }
-            .letter { padding: 30px; }
+        /* Letter Body Styling */
+        .letter-body { 
+            margin-top: 40px; 
+            line-height: 1.7; 
+            color: #333; 
+            font-family: 'Times New Roman', Times, serif; 
+            font-size: 1.15rem; 
         }
+
+        .sig-section { margin-top: 50px; }
+        .sig-handwritten { font-family: 'Brush Script MT', cursive; font-size: 3rem; margin: 10px 0 0 0; color: #000; }
+        .sig-name { font-weight: bold; margin: 0; font-family: sans-serif; font-size: 1rem; }
+        .sig-title { margin: 0; font-size: 0.95rem; color: #444; font-family: sans-serif; }
+
     </style>
 </head>
 <body>
 
-<div class="top-nav">
-    <div class="penn-logo">Penn Admissions</div>
-    <div class="user-section">
-        <strong>Aizan Gul</strong>
+<div class="utility-bar">
+    <div class="penn-logo-top">
+        <img src="https://branding.web-resources.upenn.edu/sites/default/files/styles/card_2x/public/2022-04/Penn-Shield-RGB.png" class="penn-shield" alt="Shield">
+        <span>Penn Admissions</span>
+    </div>
+    <div class="user-info">
+        <strong>Aizan Gul</strong><br>
         <a href="#" class="logout">Logout</a>
     </div>
 </div>
 
-<div class="container">
-    <div class="banner">
-        <div class="stripes-container"></div>
-        <div class="banner-text">
-            <div class="congrats-script">Congrats and Welcome!</div>
-            <h1 class="penn-30">PENN <span class="pipe">|</span> 30</h1>
-            <div class="univ-name">University of Pennsylvania</div>
+<div class="main-container">
+    <div class="date-line">December 18, 2025</div>
+
+    <div class="blue-box">
+        <div class="stripes-pattern"></div>
+        <div class="header-content">
+            <div class="congrats-text">CONGRATS AND WELCOME!</div>
+            <h1 class="penn-30-title">P E N N <span class="red-pipe">|</span> 30</h1>
+            <div class="univ-title">University of Pennsylvania</div>
         </div>
     </div>
 
-    <div class="letter">
-        <div class="date">December 14, 2023</div>
-
-        <p>Dear Aizan Gul,</p>
+    <div class="letter-body">
+        <p>Dear Aizan,</p>
 
         <p>Congratulations! You are invited to join the Class of 2030 at the University of Pennsylvania for study in the <strong>Wharton School</strong>.</p>
 
-        <p>It's time to celebrate! Extending this invitation to you means many things. It means high-fiving with the Quaker mascot and throwing toast onto Franklin Field. It means a late-night trip for a Philly cheesesteak (or a vegan seitan steak). It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea. It means there are people here—who you haven't even met yet—who are waiting to cheer you on, lift you up, and help you grow.</p>
+        <p>It is time to celebrate! Extending this invitation to you means many things. It means high fiving with the Quaker mascot and throwing toast onto Franklin Field. It means a late-night trip for a Philly cheesesteak (or vegan seitan steak). It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea. It means there are people here—who you haven't even met yet—who are waiting to cheer you on, lift you up, and help you grow.</p>
 
-        <p>The admissions team reviewed thousands of applications and we searched for students who showed us academic commitment, curiosity, and care for others. We chose <em>you</em> because we saw those characteristics throughout your application, and we believe that you will use your talents to bring challenge, growth, and kindness to this community. We also believe that the Penn community will do the same for you.</p>
+        <p>The admissions team reviewed thousands of applications and we searched for students who showed us academic commitment, curiosity, and care for others. We chose you because we saw those characteristics throughout your application, and we believe that you will use your talents to bring challenge, growth, and kindness to this community. We also believe that the Penn community will do the same for you.</p>
 
         <p>Benjamin Franklin, our founder, was a <em>creator</em>. His relentless curiosity and his willingness to persist through setbacks fueled his creation of many inventions that still exist in our 21st century lives. He also envisioned a school that would provide an inclusive and comprehensive education to prepare its students to use their knowledge to benefit the world. Upon that revolutionary promise, he founded the University of Pennsylvania as the first university in this country.</p>
 
-        <p>We can't wait to welcome you to campus. Believe me when I say: you belong here.</p>
+        <p>Congratulations again!</p>
 
-        <div class="signature-area">
+        <div class="sig-section">
             <p>Sincerely,</p>
-            <p style="font-family: 'Brush Script MT', cursive; font-size: 2.5rem; margin: 0;">E. Whitney Soule</p>
+            <div class="sig-handwritten">E. Whitney Soule</div>
             <p class="sig-name">E. Whitney Soule</p>
             <p class="sig-title">Vice Provost and Dean of Admissions</p>
         </div>
