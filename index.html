@@ -6,15 +6,14 @@
     <title>Penn Admissions Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        /* EB Garamond for the letter and banner | Roboto for UI */
-        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&display=swap');
+        /* EB Garamond for text | Roboto for UI | Permanent Marker as a Luminous Marker substitute */
+        @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Roboto:wght@400;700&family=Permanent+Marker&display=swap');
 
         body { background-color: #ffffff; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
         
-        /* Utility Bar - Roboto Font */
+        /* Utility Bar - Dark Blue #011F5B */
         .utility-bar { background: #011F5B; color: white; padding: 12px 50px; display: flex; justify-content: space-between; align-items: center; font-family: 'Roboto', sans-serif; }
-        .logo-group { display: flex; align-items: center; }
-        .penn-shield { height: 50px; } /* Official Logo is wide, height adjusted to scale */
+        .penn-logo-link { height: 50px; display: block; }
         
         .user-nav { text-align: right; }
         .user-name { font-weight: 700; font-size: 1rem; color: #ffffff; }
@@ -23,7 +22,7 @@
         .container { max-width: 900px; margin: 40px auto; padding: 0 40px; }
         .date { font-family: 'EB Garamond', serif; font-weight: 800; color: #011F5B; font-size: 1.4rem; margin-bottom: 25px; }
 
-        /* Blue Box Header - Increased height for "Small Caps" text */
+        /* Blue Box Header */
         .banner { background-color: #011F5B; height: 240px; display: flex; position: relative; color: white; overflow: hidden; border-radius: 3px; }
         
         .stripes {
@@ -39,16 +38,20 @@
 
         .header-main { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding-right: 20px; }
         
+        /* Fixed: Luminous Marker Style - Smaller & Tighter */
         .congrats { 
-            font-family: 'Comic Sans MS', cursive, sans-serif; 
-            color: #4da6ff; font-size: 1.4rem; font-style: italic; 
-            margin-bottom: -10px; text-transform: uppercase; letter-spacing: 1px;
+            font-family: 'Permanent Marker', cursive; 
+            color: #4da6ff; 
+            font-size: 1.1rem; /* Smaller Font Size */
+            letter-spacing: -0.5px; /* Closer Packed */
+            margin-bottom: -8px; 
+            text-transform: uppercase;
         }
 
-        /* Adjusted PENN spacing: tight but distinct */
-        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.2rem; font-weight: 900; margin: 0; letter-spacing: 2px; display: flex; align-items: center; }
+        /* PENN spacing: Clean and Tighter than default */
+        .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.2rem; font-weight: 900; margin: 0; letter-spacing: 1px; display: flex; align-items: center; }
         .divider { color: #cc0000; margin: 0 12px; font-weight: normal; }
-        .year { letter-spacing: 8px; margin-left: 10px; }
+        .year { letter-spacing: 6px; margin-left: 10px; }
 
         /* University of Pennsylvania Styling */
         .univ-name { font-family: 'EB Garamond', serif; font-size: 1.8rem; margin-top: -5px; letter-spacing: 1px; }
@@ -61,7 +64,7 @@
         .letter-text p { margin-bottom: 22px; }
 
         .signature { margin-top: 40px; }
-        .sig-img { font-family: 'Brush Script MT', cursive; font-size: 3.2rem; color: #000; margin: 5px 0; }
+        .sig-font { font-family: 'EB Garamond', serif; font-style: italic; font-size: 2.8rem; color: #000; margin: 5px 0; }
         .sig-name { font-family: 'Roboto', sans-serif; font-weight: 700; margin: 0; font-size: 1.05rem; color: #011F5B; }
         .sig-title { font-family: 'Roboto', sans-serif; margin: 0; font-size: 0.9rem; color: #666; }
     </style>
@@ -70,7 +73,7 @@
 
 <div class="utility-bar">
     <div class="logo-group">
-        <img src="https://admissions.upenn.edu/sites/default/files/logo-penn-admissions.png" class="penn-shield" alt="Penn Admissions">
+        <img src="https://admissions.upenn.edu/sites/default/files/logo-penn-admissions.png" class="penn-logo-link" alt="Penn Admissions">
     </div>
     <div class="user-nav">
         <span class="user-name">Aizan Gul</span>
@@ -107,7 +110,7 @@
 
         <div class="signature">
             <p style="margin-bottom:0;">Sincerely,</p>
-            <div class="sig-img">E. Whitney Soule</div>
+            <div class="sig-font">E. Whitney Soule</div>
             <p class="sig-name">E. Whitney Soule</p>
             <p class="sig-title">Vice Provost and Dean of Admissions</p>
         </div>
