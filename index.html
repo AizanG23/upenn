@@ -49,11 +49,22 @@
             padding-left: 140px; 
         }
         
+        /* Updated Congrats Banner */
         .congrats-banner { 
             font-family: 'Permanent Marker', cursive; 
-            color: #4da6ff; font-size: 1.05rem; letter-spacing: 0.5px; 
-            margin-bottom: -10px; text-transform: uppercase;
+            color: #32a1db; 
+            font-size: 1.1rem; 
+            letter-spacing: 1.5px; 
+            margin-bottom: -5px; 
+            text-transform: uppercase;
+            transform: scaleY(1.25); /* Vertical stretch */
+            display: inline-block;
         }
+
+        /* Subtle jitter for individual letters */
+        .congrats-banner span { display: inline-block; }
+        .congrats-banner span:nth-child(even) { transform: translateY(-2px) rotate(-1deg); }
+        .congrats-banner span:nth-child(3n) { transform: translateY(1px) rotate(1.5deg); }
 
         .penn-30 { font-family: 'Arial Black', sans-serif; font-size: 5.8rem; font-weight: 900; margin: 0; display: flex; align-items: center; }
         .penn-text { letter-spacing: 2px; margin-right: 30px; } 
@@ -103,7 +114,11 @@
     <div class="banner">
         <div class="lines-container"></div>
         <div class="header-main">
-            <div class="congrats-banner">Congrats and Welcome!</div>
+            <div class="congrats-banner">
+                <span>C</span><span>O</span><span>N</span><span>G</span><span>R</span><span>A</span><span>T</span><span>S</span> 
+                <span>A</span><span>N</span><span>D</span> 
+                <span>W</span><span>E</span><span>L</span><span>C</span><span>O</span><span>M</span><span>E</span><span>!</span>
+            </div>
             <div class="penn-30">
                 <span class="penn-text">PENN</span>
                 <span class="divider"></span>
