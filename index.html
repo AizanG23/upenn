@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penn Admissions Portal | Decision</title>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <style>
+        body { background-color: #e9ecef; font-family: 'Times New Roman', serif; margin: 0; padding: 20px; }
+        .wrapper { max-width: 850px; margin: 0 auto; background: white; box-shadow: 0 10px 30px rgba(0,0,0,0.15); border-radius: 8px; overflow: hidden; }
+        
+        /* Penn Branding Header */
+        .header { background: #003366; color: white; padding: 40px; display: flex; align-items: center; position: relative; }
+        .stripes { width: 100px; height: 100px; background: repeating-linear-gradient(-45deg, #cc0000, #cc0000 15px, #003366 15px, #003366 30px); margin-right: 30px; border: 2px solid rgba(255,255,255,0.1); }
+        .header-text h2 { font-style: italic; font-weight: 300; margin: 0; font-size: 1.1rem; letter-spacing: 2px; text-transform: uppercase; }
+        .header-text h1 { font-size: 4rem; margin: 5px 0; letter-spacing: 8px; font-weight: 800; }
+        .header-text p { margin: 0; font-size: 1rem; letter-spacing: 5px; opacity: 0.9; text-transform: uppercase; }
+
+        .content { padding: 60px; line-height: 1.6; color: #222; font-size: 1.15rem; }
+        .content p { margin-bottom: 25px; }
+        strong { color: #003366; }
+        
+        .signature-section { margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px; }
+        .sig-name { font-weight: bold; margin-bottom: 2px; }
+        .sig-title { font-size: 0.9rem; color: #666; font-style: italic; }
+
+        @media (max-width: 600px) {
+            .header { padding: 20px; flex-direction: column; text-align: center; }
+            .stripes { margin: 0 0 20px 0; }
+            .header-text h1 { font-size: 2.5rem; letter-spacing: 4px; }
+            .content { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+        <div class="stripes"></div>
+        <div class="header-text">
+            <h2>Congrats and Welcome!</h2>
+            <h1>PENN | 31</h1>
+            <p>University of Pennsylvania</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <p>Dear <strong>Aizan Gul</strong>,</p>
+
+        <p>Congratulations! You are invited to join the Class of 2031 at the University of Pennsylvania for study in the <strong>Wharton School</strong>.</p>
+
+        <p>It's time to celebrate! Extending this invitation to you means many things. It means high-fiving with the Quaker mascot and throwing toast onto Franklin Field. It means a late-night trip for a Philly cheesesteak. It means learning with our extraordinary faculty members as you discover your next great pursuit, favorite book, or fresh idea.</p>
+
+        <p>We selected <em>you</em> because you demonstrate empathy, openness to different perspectives, intellectual dedication, and genuine curiosity. We're confident you will use these strengths to enrich our campus, just as the Penn community will help you grow in return.</p>
+
+        <p>Benjamin Franklin, our founder, was a <em>creator</em>. He envisioned a school that would provide a comprehensive, curiosity-driven education to prepare its students to use their knowledge to benefit the world. Upon that revolutionary promise, he founded the University of Pennsylvania as the first university in this country.</p>
+
+        <p>We can see <em>you</em> here, on Locust Walk, catching up with friends, heading to class, or to a study group. We can't wait to welcome <em>you</em> to campus. Believe me when I say: <strong>you belong here.</strong></p>
+
+        <div class="signature-section">
+            <p>Sincerely,</p>
+            <p style="font-family: 'Brush Script MT', cursive; font-size: 2.5rem; margin: 10px 0;">E. Whitney Soule</p>
+            <div class="sig-name">E. Whitney Soule</div>
+            <div class="sig-title">Vice Provost and Dean of Admissions</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Triggers confetti on load
+    window.onload = function() {
+        confetti({
+            particleCount: 150,
+            spread: 70,
+            origin: { y: 0.6 },
+            colors: ['#003366', '#cc0000', '#ffffff']
+        });
+    };
+</script>
+
+</body>
+</html>
